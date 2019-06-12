@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Lwps</title>
@@ -7,8 +8,56 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.7.1/css-doodle.min.js"></script>
 </head>
+
 <body>
+  <css-doodle style="width: fit-content;height: fit-content;">
+        :doodle {
+        @grid: 32x32
+        @size: 100vmax;
+        //background: hsla(@r(100), 85%, @r(40%, 100%), @r(.9));
+        position: fixed;
+        z-index: -1;
+        }
+        //transform: scale(@rand(.1, 1.9)) translate3d(@r(150px), @r(200px), 0) rotate(@r(360deg));
+        //background: hsla(@r(100), 85%, @r(60%, 100%), @r(.9));
+        background: transparent;
+        //@shape: clover @r(3,5);
+        :after {
+        content: @pick-n([a-z],[A-Z]);
+        font-size: @rand(1.5em, 3em);
+        color: hsla(@r(0,360), @r(0%, 100%), @r(0%, 100%), @r(0,.9));
+        background: transparent;
+        }
+        @size: @r(50px);
+
+        animation: test infinite @r(50s, 150s) linear;
+
+        @keyframes test {
+        0% {
+        transform: translate3d(0, 0, @r(500px)) rotate(@r(360deg));
+        }
+        25% {
+        transform: translate3d(@r(500px), @r(500px), @r(500px)) rotate(@r(360deg));
+        }
+        50% {
+        transform: translate3d(@r(500px), @r(500px), @r(500px)) rotate(@r(360deg));
+        }
+        75% {
+        transform: translate3d(@r(500px), @r(500px), @r(500px)) rotate(@r(360deg));
+        }
+        100% {
+        transform: translate3d(0, 0, @r(500px)) rotate(@r(360deg));
+        }
+    </css-doodle>
+  <!-- <video autoplay muted loop id="myVideo" style="height: 100%;width: 100vh;z-index: -1px;overflow: hidden;">
+    <source src="https://video.wixstatic.com/video/11062b_74ef3d923f9b451492d3ed9278991873/1080p/mp4/file.mp4"
+      type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video> -->
   <app-root></app-root>
 </body>
+
 </html>
